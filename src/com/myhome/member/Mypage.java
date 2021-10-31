@@ -17,8 +17,8 @@ public class Mypage extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		MemberDto dto = null;
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("currentId");  // 현재 접속 중인 ID
-		String password = request.getParameter("user_password"); // 방금 입력한 비밀번호
+		String id = (String)session.getAttribute("currentId");  
+		String password = request.getParameter("user_password"); 
 		dto = dao.select(id, password);
 		request.setAttribute("dto", dto);
 		request.getRequestDispatcher("mypageResultView.jsp").forward(request, response); 
