@@ -13,9 +13,7 @@ import javax.sql.DataSource;
 import com.myhome.dto.MemberDto;
 
 public class MemberDao {
-//	private String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-//	private String db_username = "myJsp";
-//	private String db_password = "jsppassword";
+
 	private Connection con;
 	private PreparedStatement ps;
 	private ResultSet rs;
