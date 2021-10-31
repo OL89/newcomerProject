@@ -8,10 +8,10 @@
 
 
 <c:choose>
-	<c:when test = "${ requestScope.list == null}"> <%-- 게시글이 하나도 없을 경우 --%>
+	<c:when test = "${ requestScope.list == null}"> 
 		<H2>게시글이 없습니다.</H2>
 	</c:when> 
-	<c:otherwise> <%-- 게시글이 한 개라도 있을 경우 --%>
+	<c:otherwise>
 		<caption><h2>게시판</h2></caption>
 		<table border = "1" width = "100%">
 			<tr align = "center">
@@ -30,7 +30,7 @@
 				<th>${dto.regdate }</th>
 			</tr>	
 			</c:forEach>
-			<%-- 수정된 내용 --%>
+			
 			<tr>
 				<td colspan = "5" align = "center">
 					<c:if test = "${currentPage > 3 }">	
@@ -57,7 +57,7 @@
 		</table>
 	</c:otherwise>
 </c:choose>
-<c:if test = "${sessionScope.currentId != null }"> <%-- 현재 로그인한 상태인 경우 (글쓰기 버튼 추가) --%>
+<c:if test = "${sessionScope.currentId != null }"> 
 	<div align = "center">
 		<input type = "Button" value = "글쓰기" onclick = "location.href='BoardWriteForm.do'">
 	</div>
