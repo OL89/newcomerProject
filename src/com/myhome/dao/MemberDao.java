@@ -20,7 +20,7 @@ public class MemberDao {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private String sql;
-	static private DataSource ds; // javax.sql.DataSource
+	static private DataSource ds; 
 	static { 
 		try {
 			System.out.println("start DBCP!");
@@ -35,7 +35,7 @@ public class MemberDao {
 		boolean result = false;
 		sql = "INSERT INTO member VALUES(member_seq.NEXTVAL, ?, ?, ?, ?, SYSDATE)";
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getId() );
 			ps.setString(2, dto.getPassword() );
@@ -59,7 +59,7 @@ public class MemberDao {
 		MemberDto dto = null;
 		sql = "SELECT * FROM member WHERE id = ? AND password = ?"; 
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, password);
@@ -91,7 +91,7 @@ public class MemberDao {
 		String id = null;
 		sql = "SELECT id FROM member WHERE email = ?";
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -116,7 +116,7 @@ public class MemberDao {
 		boolean result = false;
 		sql = "DELETE FROM member WHERE id = ? AND password = ?";
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql); 
 			ps.setString(1, id);
 			ps.setString(2, password);
@@ -139,11 +139,11 @@ public class MemberDao {
 		boolean exist = false;
 		sql = "SELECT * FROM MEMBER WHERE id = ?";
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
-			exist = rs.next(); // id Á¸ÀçÇÔ
+			exist = rs.next(); // id ì¡´ìž¬í•¨
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -163,7 +163,7 @@ public class MemberDao {
 		sql = "UPDATE member SET password = ?, email = ?, nickname = ? WHERE no = ?";
 		int result = 0;
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getPassword());
 			ps.setString(2, dto.getEmail());
@@ -191,13 +191,13 @@ public class MemberDao {
 		int passwordIndex = 0;
 		sql = "SELECT * FROM member";
 		try {
-			con = ds.getConnection(); // ds¿¡¼­ Ä¿³Ø¼ÇÀ» ÇÏ³ª ºô·Á ¿È.
+			con = ds.getConnection(); 
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				dto = new MemberDto();
 				
-				// ºñ¹Ð¹øÈ£´Â ¾Õ µÎ ±ÛÀÚ¸¸ º¸¿©ÁÖ±â (³ª¸ÓÁö '*' Ã³¸®)
+				
 				tmpPassword = rs.getString("password");
 				passwordIndex = tmpPassword.length() - 2;
 				tmpPassword = tmpPassword.substring(0,2); 
@@ -206,7 +206,7 @@ public class MemberDao {
 					--passwordIndex;
 				}
 				
-				// dto¿¡ µ¥ÀÌÅÍ ¼¼ÆÃ
+				
 				dto.setNo( rs.getInt("no") );
 				dto.setId( rs.getString("id") );
 				dto.setNickname( rs.getString("nickname") );
@@ -214,7 +214,7 @@ public class MemberDao {
 				dto.setEmail( rs.getString("email") );
 				dto.setRegdate( rs.getString("regdate") );
 				
-				// list¿¡ dto Ãß°¡
+				
 				list.add(dto);
 			}
 		} catch (Exception e) {
@@ -228,7 +228,7 @@ public class MemberDao {
 				e.printStackTrace();
 			}
 		}
-		return list.isEmpty() ? null : list;  // list¸¦ return ÇÏµÇ listÀÇ ¿ø¼Ò°¡ ¾ø´Ù¸é nullÀ» return
+		return list.isEmpty() ? null : list;  
 	}
 }
 
