@@ -22,7 +22,7 @@ public class ModifyLogic extends HttpServlet {
 		HttpSession session = null;
 		int no;
 		
-		request.setCharacterEncoding("UTF-8"); // post방식으로 넘어왔기 때문에
+		request.setCharacterEncoding("UTF-8");
 		password = request.getParameter("user_password"); 
 		rePassword = request.getParameter("user_repassword");
 		
