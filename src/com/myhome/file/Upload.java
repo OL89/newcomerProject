@@ -15,53 +15,53 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @WebServlet("/file/Upload")
 public class Upload extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String fileName1 = null; // ¾÷·Îµå µÈ Ã¹ ¹ø Â° ÆÄÀÏ
-		String fileName2 = null; // ¾÷·Îµå µÈ µÎ ¹ø Â° ÆÄÀÏ
-		File file1 = null; // ¿ë·® È®ÀÎ Â÷
+		String fileName1 = null;
+		String fileName2 = null;
+		File file1 = null;
 		File file2 = null;
 		long fileSize1 = 0;
 		long fileSize2 = 0;
 		
-		// ½ÇÁ¦ Æú´õ °æ·Î Ãâ·Â
+		
 		String realPath = request.getServletContext().getRealPath("/storage");
-		System.out.println("storage Æú´õÀÇ ½ÇÁ¦ °æ·Î = " + realPath);
+		System.out.println("storage í´ë”ì˜ ì‹¤ì œ ê²½ë¡œ = " + realPath);
 
-		// ¾÷·Îµå
-		// DefaultFileRenamePolicy 
-		// : ÀÚ·á½Ç ÆÄÀÏ°ú ÀÌ¸§ÀÌ Áßº¹µÇ´Â °æ¿ì, ¾÷·ÎµåÇÒ ÆÄÀÏ ÀÌ¸§¿¡ ¼ıÀÚ¸¦ µ¡ºÙ¿©¼­ ÀúÀåÇÏµµ·Ï ÇÑ´Ù.
+		
+		
+		
 		MultipartRequest mr = new MultipartRequest(
-									request, 		// ½ÇÁ¦ ÆÄ¶ó¹ÌÅÍ°¡ ÀÖ´Â request °´Ã¼ 
-									realPath, 		// ÆÄ¶ó¹ÌÅÍ(ÆÄÀÏ)À» ÀúÀåÇÒ ½ÇÁ¦ °æ·Î
-									5 * 1024 * 1024, // Á¦ÇÑ ¿ë·® (5 * 1024 * 1024 = 5MB)
-									"UTF-8", 		// ÀÎÄÚµù Çü½Ä
-									new DefaultFileRenamePolicy() // Áßº¹ ÀÌ¸§ Á¤Ã¥
+									request, 		
+									realPath, 		
+									5 * 1024 * 1024, 
+									"UTF-8", 		
+									new DefaultFileRenamePolicy() 
 								);
 
-		// ÆÄÀÏÀÇ ¿øº» ÀÌ¸§
+		
 		String originalFileName1 = mr.getOriginalFileName("user_file1");
 		String originalFileName2 = mr.getOriginalFileName("user_file2");
 		
 		System.out.println("originalFileName1 : " + originalFileName1);
 		System.out.println("originalFileName2 : " + originalFileName2);
 		if (originalFileName1 != null) {
-			// ¾÷·ÎµåµÈ ÆÄÀÏÀÇ »õ ÀÌ¸§(Áßº¹ÀÌ¸é ¼ıÀÚ ºÙÀÓ, ¾Æ´Ï¸é ¿ø·¡ ÀÌ¸§ ±×´ë·Î »ç¿ë)
+			
 			fileName1 = mr.getFilesystemName("user_file1");
 			
-			// ÇØ´ç ÆÄÀÏÀ» FileÇü °´Ã¼·Î ¹Ş¾Æ ¿È
+			
 			file1 = mr.getFile("user_file1");
 			
-			// ÆÄÀÏÀÇ Å©±â
+			
 			fileSize1 = file1.length();
 		}
 
 		if (originalFileName2 != null) {
-			// ¾÷·ÎµåµÈ ÆÄÀÏÀÇ »õ ÀÌ¸§(Áßº¹ÀÌ¸é ¼ıÀÚ ºÙÀÓ, ¾Æ´Ï¸é ¿ø·¡ ÀÌ¸§ ±×´ë·Î »ç¿ë)
+			
 			fileName2 = mr.getFilesystemName("user_file2");
 			
-			// ÇØ´ç ÆÄÀÏÀ» FileÇü °´Ã¼·Î ¹Ş¾Æ ¿È
+			
 			file2 = mr.getFile("user_file2");
 			
-			// ÆÄÀÏÀÇ Å©±â
+			
 			fileSize2 = file2.length();
 		}
 		
