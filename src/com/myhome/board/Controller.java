@@ -22,19 +22,19 @@ import com.myhome.board.action.CommentWriteAction;
 public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// URI¿¡¼­ »ç¿ëÀÚ°¡ ¿äÃ»ÇÑ ÆäÀÌÁö ÃßÃâ
-		String requestURI = request.getRequestURI();  // ¿äÃ»µÈ URI(ÁÖ¼Ò) : "/myhome/board/BoardList.do"
-		int lstIndex = requestURI.lastIndexOf("/") + 1; // 13 + 1 --> 14
-		String requestPage = requestURI.substring(lstIndex);  // "BoardList.do"
 		
-		System.out.println("requestURI : " + requestURI );  // "/myhome/board/BoardList.do"
-		System.out.println("requestPage : " + requestPage); // "BoardList.do"
+		String requestURI = request.getRequestURI(); 
+		int lstIndex = requestURI.lastIndexOf("/") + 1; 
+		String requestPage = requestURI.substring(lstIndex);  
+		
+		System.out.println("requestURI : " + requestURI );  
+		System.out.println("requestPage : " + requestPage); 
 		
 		Action action = null;
 		ActionForward actionForward = null;
 		try {
 			
-			// °Ô½ÃÆÇ ¸ñ·Ï - DB Á¶È¸ 
+			// ê²Œì‹œíŒ ëª©ë¡ - DB ì¡°íšŒ 
 			if(requestPage.equals("BoardList.do")) {
 				action = new BoardListAction();
 				actionForward = action.execute(request, response);
@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
 				// isRedirect : false
 			}
 			
-			// °Ô½ÃÆÇ ¸ñ·Ï  - View ÆäÀÌÁö 
+			// ê²Œì‹œíŒ ëª©ë¡  - View í˜ì´ì§€ 
 			else if(requestPage.equals("BoardListView.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardListView.jsp");
@@ -51,7 +51,7 @@ public class Controller extends HttpServlet {
 				// isRedirect : false
 			}
 			
-			// ±Û¾²±â - form ÆäÀÌÁö 
+			// ê¸€ì“°ê¸° - form í˜ì´ì§€ 
 			else if(requestPage.equals("BoardWriteForm.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardWriteView.jsp");
@@ -60,7 +60,7 @@ public class Controller extends HttpServlet {
 				// isRedirect : false
 			}
 			
-			// ±Û¾²±â - DB ÀúÀå
+			// ê¸€ì“°ê¸° - DB ì €ì¥
 			else if(requestPage.equals("BoardWrite.do")) {
 				action = new BoardWriteAction();
 				actionForward = action.execute(request, response);
@@ -68,42 +68,37 @@ public class Controller extends HttpServlet {
 				// isRedirect : false
 			}
 			
-			// ±Û¾²±â, ¼öÁ¤, »èÁ¦ °á°ú ÆäÀÌÁö 
+			// ê¸€ì“°ê¸°, ìˆ˜ì •, ì‚­ì œ ê²°ê³¼ í˜ì´ì§€ 
 			else if(requestPage.equals("Result.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardResultView.jsp");
 				actionForward.setRedirect(false);
-				// nextPath : "boardResultView.jsp"
-				// isRedirect : false 
-				// (±Û¾²±â ÀÌÈÄ request ¹Ù±¸´Ï : state - "write" / result - true/false)
+				
 			}
 			
-			// ±Û º¸±â - DB Á¶È¸
+			// ê¸€ ë³´ê¸° - DB ì¡°íšŒ
 			else if(requestPage.equals("BoardRead.do")) {
 				action = new BoardReadAction();
 				actionForward = action.execute(request, response);
-				// nextPath : "BoardReadView.do"
-				// isRedirect : false
+				
 			}
 			
-			// ±Û º¸±â - View page
+			// ê¸€ ë³´ê¸° - View page
 			else if (requestPage.equals("BoardReadView.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardReadView.jsp");
 				actionForward.setRedirect(false);
-				// nextPath : "boardReadView.jsp"
-				// isRedirect : false
+				
 			}
 			
-			// ±Û »èÁ¦ - DB »èÁ¦
+			// ê¸€ ì‚­ì œ - DB ì‚­ì œ
 			else if(requestPage.equals("BoardDelete.do")) {
 				action = new BoardDeleteAction();
 				actionForward = action.execute(request, response);
-				// nextPath : "Result.do"
-				// isRedirect : false
+				
 			}
 			
-			// ±Û ¼öÁ¤ - DB Á¶È¸ (¿ø¹® ¹Ş¾Æ¿À±â)
+			// ê¸€ ìˆ˜ì • - DB ì¡°íšŒ (ì›ë¬¸ ë°›ì•„ì˜¤ê¸°)
 			else if(requestPage.equals("BoardModify.do")) {
 				action = new BoardReadAction();
 				actionForward = action.execute(request, response);
@@ -111,7 +106,7 @@ public class Controller extends HttpServlet {
 				actionForward.setRedirect(false);
 			}
 			
-			// ±Û ¼öÁ¤ - Form page 
+			// ê¸€ ìˆ˜ì • - Form page 
 			else if(requestPage.equals("BoardModifyForm.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardModifyView.jsp");
@@ -119,35 +114,35 @@ public class Controller extends HttpServlet {
 			}
 			
 			
-			// ±Û ¼öÁ¤ - DB ¼öÁ¤
+			// ê¸€ ìˆ˜ì • - DB ìˆ˜ì •
 			else if(requestPage.equals("BoardModifyAction.do")) {
 				action = new BoardModifyAction();
 				actionForward = action.execute(request, response);
 			}
 			
-			// ´ñ±Û Ãß°¡ - DB ÀúÀå
+			// ëŒ“ê¸€ ì¶”ê°€ - DB ì €ì¥
 			else if(requestPage.equals("CommentWrite.do")) {
 				action = new CommentWriteAction();
 				actionForward = action.execute(request, response);
 			}
 			
-			// ´ñ±Û¾²±â, ¼öÁ¤, »èÁ¦ °á°ú ÆäÀÌÁö
+			// ëŒ“ê¸€ì“°ê¸°, ìˆ˜ì •, ì‚­ì œ ê²°ê³¼ í˜ì´ì§€
 			else if(requestPage.equals("CommentResult.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("commentResultView.jsp");
 			}
 			
-			// ´ñ±Û »èÁ¦ - DB »èÁ¦
+			// ëŒ“ê¸€ ì‚­ì œ - DB ì‚­ì œ
 			else if(requestPage.equals("CommentDelete.do")) {
 				action = new CommentDeleteAction();
 				actionForward = action.execute(request, response);
 			}
 			
 			if(actionForward != null) {
-				if(actionForward.isRedirect()) { // ¸®´ÙÀÌ·ºÆ®¹æ½ÄÀ¸·Î nextPath ÀÌµ¿
-					response.sendRedirect(actionForward.getNextPath()); // nextPath·Î redirect
-				} else { // Æ÷¿öµå ¹æ½ÄÀ¸·Î nextPath·Î ÀÌµ¿
-					request.getRequestDispatcher(actionForward.getNextPath()).forward(request , response); // nextPath·Î forward
+				if(actionForward.isRedirect()) { 
+					response.sendRedirect(actionForward.getNextPath()); 
+				} else { 
+					request.getRequestDispatcher(actionForward.getNextPath()).forward(request , response); 
 				}
 			}
 			
