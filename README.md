@@ -1,3 +1,3 @@
 # newcomerProject
-THIS IS FIRST PROJECT
-이것은
+첫 프로젝트입니다.
+
