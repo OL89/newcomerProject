@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="myhome"
+		path="/myhome"
+		reloadable="true"
+		source="org.eclipse.jst.jee.server:myhome">
+<Resource name="jdbc/oracle"
+  type="javax.sql.DataSource"
+  driverClassName="oracle.jdbc.driver.OracleDriver"
+  url="jdbc:oracle:thin:@localhost:1521:xe"
+  username="myJsp"
+  password="jsppassword"
+  maxTotal="20"
+  maxActive="20"
+  maxIdle="3"
+  maxWaitMillis ="-1" /> 
+</Context>
