@@ -29,7 +29,7 @@ public class BoardDao {
 		}
 	}
 	
-	// ½Ì±ÛÅæ ÆÐÅÏ
+	
 	private BoardDao() {}
 	public static BoardDao getInstance() {
 		if(dao == null) {
@@ -38,7 +38,7 @@ public class BoardDao {
 		return dao;
 	}
 	
-	// closeÇÏ´Â ¸Þ¼Òµå1
+	
 	private static void close(Connection con, PreparedStatement ps, ResultSet rs) {
 		try {
 			if(rs != null) {
@@ -55,16 +55,16 @@ public class BoardDao {
 		}
 	}
 	
-	// closeÇÏ´Â ¸Þ¼Òµå2 (¿À¹ö·Îµå)
+	
 	private static void close(Connection con, PreparedStatement ps) {
 		close(con, ps, null);
 	}
 	
-	// °Ô½Ã±Û Ãß°¡ ¸Þ¼Òµå
+	
 	public boolean insert(BoardDto dto) {
 		boolean result = false;
 		sql = "INSERT INTO board VALUES( board_seq.NEXTVAL, ?, ?, ?, ?, 0, SYSDATE)";
-														// ±ÛÁ¦¸ñ, ±Ûº»¹®, ÀÛ¼ºÀÚID, ÀÛ¼ºÀÚNICK
+														
 		try {
 			con = ds.getConnection();
 			ps = con.prepareStatement(sql); 
@@ -81,7 +81,7 @@ public class BoardDao {
 		return result; 
 	}
 	
-	// °Ô½Ã±Û ¸ñ·Ï ¸Þ¼Òµå 
+	
 	public ArrayList<BoardDto> getList(int page){
 		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
 		BoardDto dto = null;
@@ -101,11 +101,11 @@ public class BoardDao {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				dto = new BoardDto();
-				dto.setNum( rs.getInt("num" )); // °Ô½Ã±Û ¹øÈ£
-				dto.setTitle( rs.getString("title" )); // ±Û Á¦¸ñ
-				dto.setNickname( rs.getString("nickname")); // ÀÛ¼ºÀÚ´Ð³×ÀÓ
-				dto.setHit( rs.getInt("hit")); // Á¶È¸¼ö
-				dto.setRegdate( rs.getString("regdate")); // µî·ÏÀÏÀÚ
+				dto.setNum( rs.getInt("num" )); 
+				dto.setTitle( rs.getString("title" )); 
+				dto.setNickname( rs.getString("nickname")); 
+				dto.setHit( rs.getInt("hit")); 
+				dto.setRegdate( rs.getString("regdate")); 
 				list.add(dto);
 			}
 		} catch(Exception e) {
@@ -116,7 +116,7 @@ public class BoardDao {
 		return list.isEmpty() ? null : list;
 	}
 	
-	// °Ô½ÃÆÇ ¸ñ·Ï ÀüÃ¼ ÆäÀÌÁö ¼ö ¸Þ¼Òµå
+	
 	public int getTotalPages() {
 		int total = 0;
 		sql = "SELECT COUNT(*) FROM board";
@@ -135,7 +135,7 @@ public class BoardDao {
 		return (total-1)/5 + 1;
 	}
 	
-	// °Ô½Ã±Û º»¹® Á¶È¸ ¸Þ¼Òµå 
+	 
 	public BoardDto select(int num){
 		BoardDto dto = null;
 		sql = "SELECT * FROM board WHERE num = ?"; 
@@ -146,13 +146,13 @@ public class BoardDao {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto = new BoardDto();
-				dto.setNum( rs.getInt("num" )); // °Ô½Ã±Û ¹øÈ£
-				dto.setTitle( rs.getString("title" )); // ±Û Á¦¸ñ
-				dto.setContent( rs.getString("content")); // ±Û º»¹®
-				dto.setWriter( rs.getString("writer")); // ÀÛ¼ºÀÚID
-				dto.setNickname( rs.getString("nickname")); // ÀÛ¼ºÀÚ´Ð³×ÀÓ
-				dto.setHit( rs.getInt("hit")); // Á¶È¸¼ö
-				dto.setRegdate( rs.getString("regdate")); // µî·ÏÀÏÀÚ
+				dto.setNum( rs.getInt("num" )); 
+				dto.setTitle( rs.getString("title" )); 
+				dto.setContent( rs.getString("content")); 
+				dto.setWriter( rs.getString("writer")); 
+				dto.setNickname( rs.getString("nickname")); 
+				dto.setHit( rs.getInt("hit")); // ì¡°íšŒìˆ˜
+				dto.setRegdate( rs.getString("regdate")); 
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -162,7 +162,7 @@ public class BoardDao {
 		return dto;
 	}
 	
-	// °Ô½Ã±Û ¼öÁ¤ ¸Þ¼Òµå
+	// ê²Œì‹œê¸€ ìˆ˜ì • ë©”ì†Œë“œ
 	public boolean update(int num, String newTitle, String newContent) {
 		boolean result = false;
 		sql = "UPDATE board SET title = ?, content = ? WHERE num = ?";
@@ -181,7 +181,7 @@ public class BoardDao {
 		return result;
 	}
 	
-	// °Ô½Ã±Û »èÁ¦ ¸Þ¼Òµå
+	// ê²Œì‹œê¸€ ì‚­ì œ ë©”ì†Œë“œ
 	public boolean delete(int num) {
 		boolean result = false;
 		sql = "DELETE FROM board WHERE num = ?";
@@ -198,7 +198,7 @@ public class BoardDao {
 		return result;
 	}
 	
-	// Á¶È¸¼ö 1 Áõ°¡ ¸Þ¼Òµå
+	
 	public boolean updateHit(int num) {
 		boolean result = false;
 		sql = "UPDATE board SET hit = hit + 1 WHERE num = ?";
