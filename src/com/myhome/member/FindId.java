@@ -21,7 +21,7 @@ public class FindId extends HttpServlet {
 		
 		if(id != null){
 			int index = id.length() - 2;
-			String tmpId = id.substring(0, 2); // 0번문자 ~ 2번 전까지
+			String tmpId = id.substring(0, 2); 
 			
 			for(int i = 0; i < index; ++i){
 				tmpId += "*";
