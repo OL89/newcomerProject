@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 public class FileList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 자료실 목록 만들기
+		
 		String storagePath = request.getServletContext().getRealPath("/storage");
-		File storageDirectory = new File(storagePath); // storage 디렉토리를 File 객체화 
+		File storageDirectory = new File(storagePath); 
 		File[] files = storageDirectory.listFiles();
-		request.setAttribute("files", files); // 파일 목록 배열을 애트리뷰트로 추가
+		request.setAttribute("files", files); 
 		
 		request.getRequestDispatcher("fileListView.jsp").forward(request, response);
 	}
