@@ -22,7 +22,7 @@ public class Signout extends HttpServlet {
 		boolean result = dao.delete(id, password);
 		
 		request.setAttribute("result", result);
-		//pageContext.forward("signoutResultView.jsp");
+		
 		RequestDispatcher rd = request.getRequestDispatcher("signoutResultView.jsp");
 		rd.forward(request, response);
 	}
