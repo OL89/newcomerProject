@@ -13,9 +13,7 @@ import com.myhome.dto.MemberDto;
 @WebServlet("/join/joinLogic.jsp")
 public class Join extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 파라미터를 꺼내서 그것들을
-		// => DB의 member 테이블의 레코드로 추가 (회원 등록)
-		// => 결과페이지(joinResultView.jsp)로 페이지 이동 
+		
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("user_id");
 		String password = request.getParameter("user_password");
