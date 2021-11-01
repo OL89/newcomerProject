@@ -38,8 +38,7 @@ public class Controller extends HttpServlet {
 			if(requestPage.equals("BoardList.do")) {
 				action = new BoardListAction();
 				actionForward = action.execute(request, response);
-				// nextPath : "BoardListView.do"
-				// isRedirect : false
+				
 			}
 			
 			// 게시판 목록  - View 페이지 
@@ -47,8 +46,7 @@ public class Controller extends HttpServlet {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardListView.jsp");
 				actionForward.setRedirect(false);
-				// nextPath : "boardListView.jsp"
-				// isRedirect : false
+				
 			}
 			
 			// 글쓰기 - form 페이지 
@@ -56,16 +54,14 @@ public class Controller extends HttpServlet {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardWriteView.jsp");
 				actionForward.setRedirect(false);
-				// nextPath : "boardWriteView.jsp"
-				// isRedirect : false
+				
 			}
 			
 			// 글쓰기 - DB 저장
 			else if(requestPage.equals("BoardWrite.do")) {
 				action = new BoardWriteAction();
 				actionForward = action.execute(request, response);
-				// nextPath : "Result.do"
-				// isRedirect : false
+				
 			}
 			
 			// 글쓰기, 수정, 삭제 결과 페이지 
