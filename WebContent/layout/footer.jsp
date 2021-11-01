@@ -1,5 +1,5 @@
 			</div>
-			<div class="footer" align="center">LeeSera's Work copyright.</div>
+			<div class="footer" align="center">first project</div>
 	</div>
 	</body>
 </html>
