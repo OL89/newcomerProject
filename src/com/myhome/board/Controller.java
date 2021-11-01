@@ -34,14 +34,14 @@ public class Controller extends HttpServlet {
 		ActionForward actionForward = null;
 		try {
 			
-			// 게시판 목록 - DB 조회 
+			
 			if(requestPage.equals("BoardList.do")) {
 				action = new BoardListAction();
 				actionForward = action.execute(request, response);
 				
 			}
 			
-			// 게시판 목록  - View 페이지 
+			
 			else if(requestPage.equals("BoardListView.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardListView.jsp");
@@ -49,7 +49,7 @@ public class Controller extends HttpServlet {
 				
 			}
 			
-			// 글쓰기 - form 페이지 
+			
 			else if(requestPage.equals("BoardWriteForm.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardWriteView.jsp");
@@ -57,14 +57,14 @@ public class Controller extends HttpServlet {
 				
 			}
 			
-			// 글쓰기 - DB 저장
+			
 			else if(requestPage.equals("BoardWrite.do")) {
 				action = new BoardWriteAction();
 				actionForward = action.execute(request, response);
 				
 			}
 			
-			// 글쓰기, 수정, 삭제 결과 페이지 
+			
 			else if(requestPage.equals("Result.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardResultView.jsp");
@@ -72,14 +72,14 @@ public class Controller extends HttpServlet {
 				
 			}
 			
-			// 글 보기 - DB 조회
+			
 			else if(requestPage.equals("BoardRead.do")) {
 				action = new BoardReadAction();
 				actionForward = action.execute(request, response);
 				
 			}
 			
-			// 글 보기 - View page
+			
 			else if (requestPage.equals("BoardReadView.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardReadView.jsp");
@@ -87,14 +87,14 @@ public class Controller extends HttpServlet {
 				
 			}
 			
-			// 글 삭제 - DB 삭제
+			
 			else if(requestPage.equals("BoardDelete.do")) {
 				action = new BoardDeleteAction();
 				actionForward = action.execute(request, response);
 				
 			}
 			
-			// 글 수정 - DB 조회 (원문 받아오기)
+			
 			else if(requestPage.equals("BoardModify.do")) {
 				action = new BoardReadAction();
 				actionForward = action.execute(request, response);
@@ -102,7 +102,7 @@ public class Controller extends HttpServlet {
 				actionForward.setRedirect(false);
 			}
 			
-			// 글 수정 - Form page 
+			
 			else if(requestPage.equals("BoardModifyForm.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("boardModifyView.jsp");
@@ -110,25 +110,25 @@ public class Controller extends HttpServlet {
 			}
 			
 			
-			// 글 수정 - DB 수정
+			
 			else if(requestPage.equals("BoardModifyAction.do")) {
 				action = new BoardModifyAction();
 				actionForward = action.execute(request, response);
 			}
 			
-			// 댓글 추가 - DB 저장
+			
 			else if(requestPage.equals("CommentWrite.do")) {
 				action = new CommentWriteAction();
 				actionForward = action.execute(request, response);
 			}
 			
-			// 댓글쓰기, 수정, 삭제 결과 페이지
+			
 			else if(requestPage.equals("CommentResult.do")) {
 				actionForward = new ActionForward();
 				actionForward.setNextPath("commentResultView.jsp");
 			}
 			
-			// 댓글 삭제 - DB 삭제
+			
 			else if(requestPage.equals("CommentDelete.do")) {
 				action = new CommentDeleteAction();
 				actionForward = action.execute(request, response);
