@@ -22,7 +22,7 @@ public class MemberDao {
 	static { 
 		try {
 			System.out.println("start DBCP!");
-			Context context = new InitialContext(); // javax.naming.Context
+			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -141,7 +141,7 @@ public class MemberDao {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
-			exist = rs.next(); // id 존재함
+			exist = rs.next(); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
