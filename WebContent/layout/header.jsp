@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Sera's: ${ param.title != null ? param.title : "My WebPage!"}</title>
+		<title>project: ${ param.title != null ? param.title : "My WebPage!"}</title>
 		<link rel="stylesheet" type="text/css" href="/myhome/layout/layout.css">
 	</head>
 	<body>
