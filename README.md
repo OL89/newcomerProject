@@ -17,7 +17,7 @@
 
 
 
-#### 
+#### ID, PASSWORD를 통해 로그인을 할 수 있으며 E-mail을 통해 아이디찾기가 가능하다.
 ![로그인](https://user-images.githubusercontent.com/93465221/139787830-6236bc4b-7a62-4b48-a87a-54600d684fa3.png)
 
 
