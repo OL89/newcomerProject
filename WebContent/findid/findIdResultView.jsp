@@ -9,6 +9,7 @@
 		<c:when test = "${ requestScope.id != null}">
 			고객님의 ID는 다음과 같습니다.<br>${requestScope.id }
 		</c:when>
+		
 		<c:otherwise>
 			찾으시는 ID는 존재하지 않습니다.
 		</c:otherwise>
