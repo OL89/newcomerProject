@@ -26,4 +26,5 @@
 		</tr>
 	</table>
 </form>
+
 <jsp:include page="/layout/footer.jsp"/>
