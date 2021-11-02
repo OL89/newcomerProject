@@ -11,13 +11,13 @@
 
 
 
-#### HTTP Request방식으로 JAVA와 JSP를 나눴습니다.
+#### DAO부분에서 insert메소드에 쿼리를 이용해 추가하였습니다.
 ![회원가입](https://user-images.githubusercontent.com/93465221/139787824-ae1a4ec7-ff7a-41d5-b10f-f5526f3bd18b.png)
 
 
 
 
-####
+#### 
 ![로그인](https://user-images.githubusercontent.com/93465221/139787830-6236bc4b-7a62-4b48-a87a-54600d684fa3.png)
 
 
