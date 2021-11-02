@@ -13,14 +13,14 @@ public class BoardListAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int page = Integer.parseInt(request.getParameter("page"));
 		BoardDao dao = BoardDao.getInstance();
-		ArrayList<BoardDto> list = dao.getList(page); // DB에서 list 정보를 받아온다.
+		ArrayList<BoardDto> list = dao.getList(page); 
 		int totalpages = dao.getTotalPages();
 		ActionForward actionForward = new ActionForward();
-		request.setAttribute("list", list); // request영역으로 list 속성을 추가한다.
+		request.setAttribute("list", list); 
 		request.setAttribute("totalPages", totalpages); 
 		request.setAttribute("currentPage", page);
-		actionForward.setNextPath("BoardListView.do"); // execute() 종료 후 BoardListView.do를 요청하겠다.
-		actionForward.setRedirect(false);   // forward 하겠다.
+		actionForward.setNextPath("BoardListView.do"); 
+		actionForward.setRedirect(false);   
 		return actionForward; 
 	}
 }
