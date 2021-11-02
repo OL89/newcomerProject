@@ -17,17 +17,17 @@ public class BoardReadAction implements Action{
 		ActionForward actionForward = null;
 		BoardDao boardDao = BoardDao.getInstance();
 		BoardDto boardDto = null;
-		int boardNum = Integer.parseInt( request.getParameter("brdNo")); // url에 첨부된 글번호 파라미터 받기
-		CommentDao commentDao = CommentDao.getInstance(); // 댓글 dao
-		ArrayList<CommentDto> commentList = commentDao.getList(boardNum); // 댓글 리스트 가져오기
-		String attName = "brd_" + boardNum; // 새로고침 시 조회 수 증가를 막기위해 세션에 정보 저장
+		int boardNum = Integer.parseInt( request.getParameter("brdNo")); 
+		CommentDao commentDao = CommentDao.getInstance(); 
+		ArrayList<CommentDto> commentList = commentDao.getList(boardNum); 
+		String attName = "brd_" + boardNum; 
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute(attName) == null) { // 현재 세션이 이 글을 본적이 없다면 
-			boardDao.updateHit(boardNum); // 조회수 1 증가
-			session.setAttribute(attName,  "Y"); // attName (예. "brd_22") 을 session의 attribute로 등록 
+		if(session.getAttribute(attName) == null) {  
+			boardDao.updateHit(boardNum); 
+			session.setAttribute(attName,  "Y"); 
 		}
-		boardDto = boardDao.select(boardNum); // DB 조회 + 결과를  Dto에 저장
+		boardDto = boardDao.select(boardNum);
 		request.setAttribute("brdDto", boardDto);
 		request.setAttribute("commentList", commentList);
 		
