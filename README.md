@@ -11,7 +11,7 @@
 
 
 
-#### 
+#### HTTP Request방식으로 JAVA와 JSP를 나눴습니다.
 ![회원가입](https://user-images.githubusercontent.com/93465221/139787824-ae1a4ec7-ff7a-41d5-b10f-f5526f3bd18b.png)
 
 
