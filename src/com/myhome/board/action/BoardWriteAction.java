@@ -17,8 +17,8 @@ public class BoardWriteAction implements Action{
 		BoardDto dto = null;
 		BoardDao dao = null;
 		boolean result = false;
-		ActionForward actionForward = new ActionForward(); // 다음 목적지가 어디인지
-		HttpSession session = request.getSession(); // session 얻어오기
+		ActionForward actionForward = new ActionForward(); 
+		HttpSession session = request.getSession(); 
 		
 		request.setCharacterEncoding("UTF-8");
 		writer = (String)session.getAttribute("currentId");
@@ -36,7 +36,7 @@ public class BoardWriteAction implements Action{
 		}
 		request.setAttribute("state", "write");
 		request.setAttribute("result", result);
-		actionForward.setNextPath("Result.do"); // 결과페이지로 이동(write의 결과 true/false라는 파라미터도 전달)
+		actionForward.setNextPath("Result.do"); 
 		actionForward.setRedirect(false);
 		return actionForward;
 	}
