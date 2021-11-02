@@ -15,6 +15,7 @@
 	<table border ="1">
 		<caption><h2>게시글 수정</h2></caption>
 		<tr>
+			
 			<th>제목</th>
 			<td align = "center">
 				<input type = "text" name = "board_title" size = "72" value = "${dto.title }" required>
