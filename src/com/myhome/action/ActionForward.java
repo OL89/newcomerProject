@@ -1,8 +1,8 @@
 package com.myhome.board.action;
 
-public class ActionForward { // ÆäÀÌÁöÀÇ ´ÙÀ½ ½ÇÇà ÆäÀÌÁö°¡ ¾îµğÀÎÁö 
-	private boolean isRedirect; // true : redirect ÇÒ °ÍÀÌ´Ù. false : forward ÇÒ °ÍÀÌ´Ù. 
-	private String nextPath; 	// ´ÙÀ½ °æ·Î
+public class ActionForward { 
+	private boolean isRedirect; // true : redirect í•  ê²ƒì´ë‹¤. false : forward í•  ê²ƒì´ë‹¤. 
+	private String nextPath; 	
 	
 	public boolean isRedirect() {
 		return isRedirect;
