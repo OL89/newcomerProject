@@ -9,6 +9,7 @@ public class BoardDto {
 	private int hit;
 	private String regdate;
 	
+	
 	public int getNum() {
 		return num;
 	}
