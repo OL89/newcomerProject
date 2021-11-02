@@ -6,7 +6,6 @@
 </jsp:include>
 
 
-
 <c:choose>
 	<c:when test = "${ requestScope.list == null}"> 
 		<H2>게시글이 없습니다.</H2>
