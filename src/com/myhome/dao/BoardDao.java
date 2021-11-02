@@ -136,6 +136,7 @@ public class BoardDao {
 	}
 	
 	 
+	
 	public BoardDto select(int num){
 		BoardDto dto = null;
 		sql = "SELECT * FROM board WHERE num = ?"; 
