@@ -23,11 +23,11 @@
 
 
 
-####
+#### 입력한 정보와 SELECT쿼리문으로 검색 후 SELECT메서드로 정보를 비교하여 로그인을 실시한다.
 ![로그인화면](https://user-images.githubusercontent.com/93465221/139787845-3296c3af-63d6-4f38-8e6d-2885ff18fb9e.png)
 
 
 
 
-####
+#### 로그인 후 SESSION을 이용하여 REQUEST받아 결과페이지로 정보를 forward 해준다.
 ![내정보보기](https://user-images.githubusercontent.com/93465221/139787860-d687a291-b3b7-4746-bf2b-8f798372da28.png)
