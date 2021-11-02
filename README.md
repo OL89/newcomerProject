@@ -1,4 +1,4 @@
-## **메인페이지**
+## **게시판**
 #### ORACLE TABLE 구축
 ![서버 테이블](https://user-images.githubusercontent.com/93465221/139675262-032b7486-b9ae-42d0-930e-27a9a70b73d3.png)
 
