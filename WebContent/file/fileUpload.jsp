@@ -9,6 +9,7 @@
 <table border="1">
 	<caption><h2>파일 업로드</h2></caption>
 	<tr>
+		
 		<th>FILE1</th>
 		<td width="75%"><input type="File" name="user_file1"></td>
 	</tr>
