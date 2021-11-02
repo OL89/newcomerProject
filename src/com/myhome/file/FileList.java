@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class FileList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		String storagePath = request.getServletContext().getRealPath("/storage");
 		File storageDirectory = new File(storagePath); 
 		File[] files = storageDirectory.listFiles();
