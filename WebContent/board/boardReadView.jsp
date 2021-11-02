@@ -37,7 +37,8 @@
 	</tr>
 </table>
 
-<!-- 수정된 부분 -->
+
+
 <form action = "CommentWrite.do" method = "post">
 <input type = "hidden" name = "parent_num" value = "${dto.num }">
 <table border ="1" width = "70%">
