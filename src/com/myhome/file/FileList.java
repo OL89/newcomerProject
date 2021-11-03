@@ -18,6 +18,7 @@ public class FileList extends HttpServlet {
 		File[] files = storageDirectory.listFiles();
 		request.setAttribute("files", files); 
 		
+		
 		request.getRequestDispatcher("fileListView.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
