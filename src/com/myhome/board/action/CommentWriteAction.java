@@ -22,6 +22,7 @@ public class CommentWriteAction implements Action{
 		dto.setComment(comment);
 		dto.setParentNum(parentNum);
 		
+		
 		boolean result = dao.insert(dto);
 		request.setAttribute("result", result);
 		request.setAttribute("state", "write");
