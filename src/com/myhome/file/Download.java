@@ -27,7 +27,6 @@ public class Download extends HttpServlet {
 
 		 
 		
-		
 		fileName="attachment;fileName="+new String(URLEncoder.encode(fileName,"UTF-8")).replaceAll("\\+"," ");
 		response.setHeader("Content-Disposition", fileName);
 		response.setHeader("Content-Length", String.valueOf(file.length()));
