@@ -16,6 +16,7 @@ public class BoardModifyAction implements Action{
 		ActionForward actionForward = null;
 		
 		
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		newTitle = request.getParameter("board_title"); 
