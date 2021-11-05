@@ -11,6 +11,7 @@
 </jsp:include>
 
 
+
 <table border ="1" width = "70%">
 	<caption><h2>본문 보기</h2></caption>
 	<tr>
