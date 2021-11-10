@@ -32,6 +32,7 @@ public class BoardReadAction implements Action{
 		request.setAttribute("commentList", commentList);
 		
 		
+		
 		actionForward = new ActionForward();
 		actionForward.setRedirect(false);
 		actionForward.setNextPath("BoardReadView.do");
