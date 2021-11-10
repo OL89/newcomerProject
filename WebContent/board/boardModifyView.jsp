@@ -10,6 +10,7 @@
 </jsp:include>
 
 
+
 <form action = "BoardModifyAction.do" method = "post">
 	<input type = "hidden" name = "board_num" value = "${dto.num }">
 	<table border ="1">
